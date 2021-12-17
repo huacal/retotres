@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo Willy Wonka</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="img/favicon-willy-wonka.png" type="image/gif" sizes="16x16">
+    <!-- <link rel="stylesheet" href="css/bootstrap.css"> -->
+</head>
+
+<body class="body">
+
+    <div class="box-sign-in">
+        <a href="index.html" class="logo"><img src="img/logo-willy-wonka.svg" alt="Chocolates Willy Wonka"></a>
+        <div class="container">
+            <div class="box-form-sign">
+                <div class="box-form">
+                    <h2>Iniciar Sesión</h2>
+                    <form id="form2" class="form">
+                        <div class="input-group" id="inputGroup-email">
+                            <span><i class="fas fa-at"></i></span>
+                            <input type="email" name="email" id="email" placeholder="Correo Eléctronico">
+                        </div>
+
+                        <div class="input-group" id="inputGroup-password">
+                            <span><i class="fas fa-key" aria-hidden="true"></i></span>
+                            <input type="password" name="password" id="password" placeholder="Contraseña">
+                        </div>
+
+                        <div id="msgAlert"></div>
+
+                        <button class="btn btn-primary btn-block" type="submit" id="submitButton">Iniciar Sesión</button>
+
+                        <div class="form-row">
+                            <span>No tienes cuenta,<a href="registrar.html"
+                                                      class="new-register"> <strong>Regístrate Aquí</strong></a></span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- <div class="container-fluid">
+         Barra de Navegación Top 
+        <nav class="navbar navbar-expand-md navbar-dark bg-dark sticky-top mr-auto p-3">
+            <div class="container">
+                <a href="#" class="navbar-brand">Willy Wonka</a>
+                 <button type="button" class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menuNavegacion">
+                     <span class="navbar-toggler-icon"></span>
+                </button> 
+                 <div class="collapse navbar-collapse ms-4" id="menuNavegacion">
+                    <ul class="navbar-nav ms-6">
+                        <li class="nav-item"><a class="nav-link" href="#">Inicio</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Catálogo</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Contacto</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#">Legal</a></li>
+                    </ul>
+                </div>
+               <div class="btn-group" role="group" aria-label="Basic example">
+                    <a href="login.html" type="button" class="btn btn-primary me-3">Iniciar sesión</button>
+                    <a href="#" type="button" class="btn btn-outline-primary ">Registrarse</a>
+                </div> 
+            </div>
+        </nav>
+    </div> -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.js"></script>
+    <script src="js/functions.js"></script>
+</body>
+
+</html>
