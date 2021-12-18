@@ -15,6 +15,7 @@ import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/chocolate")
+@CrossOrigin("*")
 public class ChocolateController {
     @Autowired
     private ChocolateService servicio;
