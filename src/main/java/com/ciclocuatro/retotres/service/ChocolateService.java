@@ -73,4 +73,12 @@ public class ChocolateService {
         return aBoolean;
     }
 
+    public List<Chocolate> findByPrice(double price){
+        return chocolateRepository.findByPrice(price);
+    }
+
+    public List<Chocolate> getByDescriptionContains(String description){
+        return chocolateRepository.findByDescriptionContains(description);
+    }
+
 }

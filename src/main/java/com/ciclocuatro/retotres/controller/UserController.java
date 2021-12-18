@@ -58,13 +58,11 @@ public class UserController {
         return servicio.existeEmail(email);
     }
 
-    
+    @GetMapping("/birthday/{monthBirthtDay}")
+    public List<User> getByMonthBirthtDay(@PathVariable("monthBirthtDay") String monthBirthtDay){
+        return servicio.getByMonthBirthtDay(monthBirthtDay);
+    }
 
-    
-
-    
-
-    
 
 
 

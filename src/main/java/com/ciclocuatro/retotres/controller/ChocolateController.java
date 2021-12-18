@@ -47,5 +47,15 @@ public class ChocolateController {
         return servicio.delete(reference);
     }
 
+    @GetMapping("/price/{price}")
+    public List<Chocolate> findByPrice(@PathVariable("price" )double price){
+        return servicio.findByPrice(price);
+    } 
+
+    @GetMapping("/description/{description}")
+    public List<Chocolate>getByDescriptionContains(@PathVariable("description") String description){
+        return servicio.getByDescriptionContains(description);
+    }
+
 
 }

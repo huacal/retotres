@@ -35,6 +35,14 @@ public class ChocolateRepository {
     public void delete(Chocolate chocolate) {
         repository.delete(chocolate);
     }
+    
+    //RETO 5
+    public List<Chocolate>findByPrice(double price){
+        return repository.findByprice(price);
+    }
 
+    public List<Chocolate> findByDescriptionContains(String description){
+        return repository.findByDescriptionContainingIgnoreCase(description);
+    }
 
 }
