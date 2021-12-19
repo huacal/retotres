@@ -29,7 +29,7 @@ const fields = {
 }
 
 const validateEmail = (e) => {
-    console.log(e.target);
+    /* console.log(e.target); */
     switch (e.target.name) {
         case "identificacion":
             validFields(expresionsFields.identificacionField, e.target, 'identificacion');
@@ -60,6 +60,20 @@ const validateEmail = (e) => {
 }
 
 
+const validFields = (expresionsFields, input, campo) => {
+    console.log(campo.value)
+    if (expresionsFields.test(input.value)) {
+        document.getElementById(`inputGroup-${campo}`).classList.remove('invalid');
+        document.querySelector(`#inputGroup-${campo} .text-alert-input`).classList.remove('text-alert-input-activo');
+        fields[campo] = true;
+
+    } else {
+        document.getElementById(`inputGroup-${campo}`).classList.add('invalid');
+        document.querySelector(`#inputGroup-${campo} .text-alert-input`).classList.add('text-alert-input-activo');
+        fields[campo] = false;
+    }
+}
+
 const validPasswordConf = () => {
     const inputPassword1 = document.getElementById('password');
     const inputPassword2 = document.getElementById('passwordConf');
@@ -77,18 +91,6 @@ const validPasswordConf = () => {
 }
 
 
-const validFields = (expresionsFields, input, campo) => {
-    if (expresionsFields.test(input.value)) {
-        document.getElementById(`inputGroup-${campo}`).classList.remove('invalid');
-        document.querySelector(`#inputGroup-${campo} .text-alert-input`).classList.remove('text-alert-input-activo');
-        fields[campo] = true;
-        console.log([fields])
-    } else {
-        document.getElementById(`inputGroup-${campo}`).classList.add('invalid');
-        document.querySelector(`#inputGroup-${campo} .text-alert-input`).classList.add('text-alert-input-activo');
-        fields[campo] = false;
-    }
-}
 
 const saveUser = () => {
     let identificacion = document.getElementById('identificacion').value.trim();

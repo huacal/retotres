@@ -103,11 +103,11 @@ public class UserController {
     }
 
     /**
+     * Reto 5
      * Get = Retorna los usuarios por mes de cumpleaños
      * @param  monthBirthtDay
      * @return
      */
-
     @GetMapping("/birthday/{monthBirthtDay}")
     public List<User> getByMonthBirthtDay(@PathVariable("monthBirthtDay") String monthBirthtDay){
         return servicio.getByMonthBirthtDay(monthBirthtDay);

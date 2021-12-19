@@ -3,6 +3,7 @@ package com.ciclocuatro.retotres.service;
 import com.ciclocuatro.retotres.model.Chocolate;
 import com.ciclocuatro.retotres.repository.ChocolateRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,6 +16,9 @@ import java.util.Optional;
 public class ChocolateService {
     @Autowired
     private ChocolateRepository chocolateRepository;
+
+    @Autowired
+    private MongoTemplate mongoTemplate;
 
     public List<Chocolate> getAll(){
         return  chocolateRepository.getAll();
@@ -72,6 +76,8 @@ public class ChocolateService {
         }).orElse(false);
         return aBoolean;
     }
+
+    // Reto 5
 
     public List<Chocolate> findByPrice(double price){
         return chocolateRepository.findByPrice(price);

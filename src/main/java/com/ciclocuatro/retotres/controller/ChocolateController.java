@@ -47,7 +47,8 @@ public class ChocolateController {
     public boolean delete(@PathVariable("reference") String reference) {
         return servicio.delete(reference);
     }
-
+    
+     // Reto 5
     @GetMapping("/price/{price}")
     public List<Chocolate> findByPrice(@PathVariable("price" )double price){
         return servicio.findByPrice(price);
