@@ -275,7 +275,6 @@ listUsers.addEventListener('click', (e) => {
     /* let editButton = e.target.id == 'btnEdit'; */
     let alerts = document.querySelector('.alert');
     id = e.target.parentElement.dataset.id;
-
     // Delete - Remove the existing user
     //method: DELETE
 

@@ -24,7 +24,7 @@ const  renderProducts  = (products) => {
         <td>${product.quantity}</td>
         <td><img src="${product.photography}" all="Chocolates Willy Wonka"  width="100px"/></td>
         <td>
-        <button type="button" class="btn btn-success btn-editar-abrir" data-bs-toggle="modal" data-bs-target="#editModalProduct" id="btnEditProduct"> Editar</button>
+        <button type="button" class="btn btn-success btn-editar-abrir" data-bs-toggle="modal" data-bs-target="#editModalProduct" > Editar</button>
         <button type="button" id="btnDeleteProduct" class="btn btn-danger" > Eliminar</button>
         </td>
         </tr> `
@@ -95,7 +95,7 @@ addProduct.addEventListener('submit', (e) =>{
 
 const catchProducts = (reference) => {
     $.ajax({
-        url: "http://144.22.38.142:8080/api/chocolate/" + reference,
+        url: `${url}/` + reference,
         type: "GET",
         datatype: "JSON",
         success: function(respuesta) {
@@ -124,6 +124,82 @@ const catchProducts = (reference) => {
     });
 }
 
+
+const editDates = () => {
+    var reference = miIndice;
+    var reference = $.trim($("#referenciaEdit").val());
+    var category = $.trim($("#categoriaEdit").val());
+    var description = $.trim($("#descripcionEdit").val());
+    var availability = $.trim($("#disponibilidadEdit").val());
+    var price = $.trim($("#precioEdit").val());
+    var quantity = $.trim($("#cantidadEdit").val());
+    var photography = $.trim($("#imagenEdit").val());
+
+
+    let myData = {
+        reference: reference,
+        category: category,
+        description: description,
+        availability: availability,
+        price: price,
+        quantity: quantity,
+        photography: photography,
+    }
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: `${url}/update`,
+        type: "PUT",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+           /*  location.reload(); */
+
+        }
+    });
+}
+
+
+//Elimina un producto
+const deleteUser = (reference) => {
+    let myData = {
+        "reference": reference
+    };
+    let dataToSend = JSON.stringify(myData);
+    $.ajax({
+        url: `${url}/` + reference, 
+        type: "DELETE",
+        data: dataToSend,
+        contentType: "application/JSON",
+        datatype: "JSON",
+        success: function(respuesta) {
+            alerts.innerHTML = '<span>Producto eliminado</span>'
+            alerts.classList.add('bad');
+            setTimeout(() => {
+                alerts.innerHTML = " ";
+                alerts.classList.remove('bad');
+                location.reload()
+            }, 3000);
+        }
+    });
+}
+
+
+$(document).on("click", "#btnDeleteProduct", function() {
+    fila = $(this).closest("tr");
+    var reference = fila.find('td:eq(0)').text();
+    $.ajax({
+        url:  `${url}/`+ reference,
+        type: "GET",
+        datatype: "JSON",
+        success: function(respuesta) {
+            miRef = respuesta.reference;
+            deleteUser(miRef);
+        }
+    });
+});
+
+
 //Traer la infromacion al Modal
 //llenar campos modal
 $(document).on("click", ".btn-editar-abrir", function() {
@@ -132,4 +208,11 @@ $(document).on("click", ".btn-editar-abrir", function() {
     /* var password = fila.find('td:eq(5)').text(); */
     catchProducts(reference);
 
+});
+
+
+
+$(document).on("click", "#btnEditProduct", function(e) {
+    e.preventDefault();
+    editDates();
 });
